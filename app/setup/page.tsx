@@ -68,7 +68,7 @@ export default function SetupPage() {
       console.error(error);
       alert("Something went wrong");
     } finally {
-      setLoading(false);
+      setSaving(false);;
     }
   };
 
