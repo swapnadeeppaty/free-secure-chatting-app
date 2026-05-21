@@ -15,7 +15,7 @@ export default function SetupPage() {
   }
 
   }, [user, loading]);
-  const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   const router = useRouter();
 
@@ -34,7 +34,7 @@ export default function SetupPage() {
     }
 
     try {
-      setLoading(true);
+      setSaving(true);
 
       const usernameLower = username.toLowerCase();
 
@@ -47,7 +47,7 @@ export default function SetupPage() {
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
-        setLoading(false);
+        setSaving(false);
         return alert("Username already taken");
       }
 
@@ -85,10 +85,10 @@ export default function SetupPage() {
 
         <button
           onClick={handleSave}
-          disabled={loading}
+          disabled={saving}
           className="bg-black text-white px-4 py-2 rounded"
         >
-          {loading ? "Saving..." : "Save Username"}
+          {saving ? "Saving..." : "Continue"}
         </button>
       </div>
     </div>
